@@ -62,4 +62,8 @@ else
 endif
 
 REGION=$(shell aws configure get region)
-[ -f $(EVENT_JSON_FILE) ] && PAYLOAD_ARG="--payload file://$(EVENT_JSON_FILE)"
+
+ifneq ("$(wildcard $(EVENT_JSON_FILE))","")
+	PAYLOAD_ARG=--payload file://$(EVENT_JSON_FILE)
+endif
+

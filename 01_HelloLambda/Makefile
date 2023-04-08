@@ -52,6 +52,9 @@ envs:
 	@echo 'CONTENT_URI: $(CONTENT_URI)'
 	@echo 'TEMPLATE_FILE: $(TEMPLATE_FILE)'
 	@echo 'OUTPUT_TEMPLATE_FILE: $(OUTPUT_TEMPLATE_FILE)'
+
+	@echo 'EVENT_JSON_FILE: $(EVENT_JSON_FILE)'
+	@echo 'PAYLOAD_ARG: $(PAYLOAD_ARG)'
 	@echo
 
 layer_generate: layer_$(RUNTIME_SHORT)
