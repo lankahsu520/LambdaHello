@@ -207,8 +207,6 @@ $ make invoke
 
 ## 4.6. Delete with AWS CloudFormation
 
-#### 
-
 ```mermaid
 flowchart LR
 	Start([Start])
