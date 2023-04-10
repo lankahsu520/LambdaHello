@@ -29,7 +29,7 @@ class lambdaX9_ctx(pythonX9):
 		s3_bucket_name = S3_BUCKET_NAME_BAK
 		s3_object_name =self.s3_object_name
 		self.awsx9.s3_delete_object(S3_BUCKET_NAME_BAK, s3_object_name )
-		response = {'statusCode': 200, 'eventName': self.s3_object_eventName}
+		response = {'statusCode': 200, 'eventName': self.s3_object_eventName, 'bucket': self.s3_object_bucket, 'object': self.s3_object_name}
 		return response
 
 	def event_s3_put(self, event, context):
@@ -39,7 +39,7 @@ class lambdaX9_ctx(pythonX9):
 		s3_bucket_to = S3_BUCKET_NAME_BAK
 		s3_object_to = self.s3_object_name
 		self.awsx9.s3_copy_object(s3_bucket_from, s3_object_from, s3_bucket_to, s3_object_to )
-		response = {'statusCode': 200, 'eventName': self.s3_object_eventName}
+		response = {'statusCode': 200, 'eventName': self.s3_object_eventName, 'bucket': self.s3_object_bucket, 'object': self.s3_object_name}
 		return response
 
 	def event_s3_others(self, event, context):

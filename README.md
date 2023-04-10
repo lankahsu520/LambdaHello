@@ -258,6 +258,7 @@ delete: s3://lambda-artifacts520/LambdaHello//bac8ad3a2048d88e3e56a1f01ea54d8b
 
 - [01_HelloLambda](https://github.com/lankahsu520/LambdaHello/tree/main/01_HelloLambda)
 - [02_HelloLambda_with_payload](https://github.com/lankahsu520/LambdaHello/tree/main/02_HelloLambda_with_payload)
+- [03_HelloLambda_rw_s3](https://github.com/lankahsu520/LambdaHello/tree/main/03_HelloLambda_rw_s3)
 
 # 6. License
 LambdaHello is under the New BSD License (BSD-3-Clause).
@@ -265,3 +266,4 @@ LambdaHello is under the New BSD License (BSD-3-Clause).
 
 # 7. Documentation
 - [helper_AWS-Lambda.md](https://github.com/lankahsu520/HelperX/blob/master/helper_AWS-Lambda.md) - AWS-Lambda helper.
+
