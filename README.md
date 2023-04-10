@@ -24,7 +24,7 @@ You need an aws account at first !
 
 # 4. Build
 
-## 4.1. Hello, Lambda! (in Pyton)
+## 4.1. Hello, Lambda! (write functions in Pyton)
 
 > The 1st python, you can edit it.
 
@@ -254,10 +254,12 @@ delete: s3://lambda-artifacts520/LambdaHello//bac8ad3a2048d88e3e56a1f01ea54d8b
 
 # 5. Example or Usage
 
+- [01_HelloLambda](https://github.com/lankahsu520/LambdaHello/tree/main/01_HelloLambda)
+- [02_HelloLambda_with_payload](https://github.com/lankahsu520/LambdaHello/tree/main/02_HelloLambda_with_payload)
 
 # 6. License
 LambdaHello is under the New BSD License (BSD-3-Clause).
 
 
 # 7. Documentation
-Run an example and read it.
+- [helper_AWS-Lambda.md](https://github.com/lankahsu520/HelperX/blob/master/helper_AWS-Lambda.md) - AWS-Lambda helper.

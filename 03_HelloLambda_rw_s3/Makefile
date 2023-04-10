@@ -26,7 +26,7 @@ all: envs $(S3_BUCKET_CHK)
 clean:
 	$(PJ_SH_RM) export.log
 	$(PJ_SH_RM) .configured
-	$(PJ_SH_RMDIR) node_modules/ $(S3_BUCKET_CHK) $(CONTENT_URI)/ $(OUTPUT_TEMPLATE_FILE) $(RESULT_JSON_FILE)
+	$(PJ_SH_RMDIR) node_modules/ function/__pycache__/ github_libs/ $(S3_BUCKET_CHK) $(CONTENT_URI)/ $(OUTPUT_TEMPLATE_FILE) $(RESULT_JSON_FILE)
 	$(PJ_SH_RM) $(PJ_NAME)/version.txt
 	@for subdir in $(CONFS_yes); do \
 		[ -d "$$subdir" ] && (make -C $$subdir $@;) || echo "skip !!! ($$subdir)"; \
@@ -55,6 +55,9 @@ envs:
 
 	@echo 'EVENT_JSON_FILE: $(EVENT_JSON_FILE)'
 	@echo 'PAYLOAD_ARG: $(PAYLOAD_ARG)'
+
+	@echo 'GITHUB_LIBS: $(GITHUB_LIBS)'
+
 	@echo
 
 layer_generate: layer_$(RUNTIME_SHORT)
@@ -102,10 +105,11 @@ s3_object_rm: s3_object_found
 
 layer_python:
 	@echo '----->> $@ - $(PWD)/$(CONTENT_URI)/'
-	@[ ! -d "./$(CONTENT_URI)" ] \
-	&& cd $(LAMBDA_FUNCTION_DIR) \
-	&& pip3 install --target ../$(CONTENT_URI)/python -r requirements.txt \
-	|| echo
+	@if [ ! -d "./$(CONTENT_URI)" ]; then \
+		(cd $(LAMBDA_FUNCTION_DIR); pip3 install --target ../$(CONTENT_URI)/python -r requirements.txt); \
+		[ "$(GITHUB_LIBS)" != "" ] && git clone $(GITHUB_LIBS) github_libs && cp -avr github_libs/* $(CONTENT_URI)/python && rm -rf github_libs; \
+	fi
+	echo
 
 layer_nodejs:
 	@echo '----->> $@ - $(PWD)/$(CONTENT_URI)/nodejs'

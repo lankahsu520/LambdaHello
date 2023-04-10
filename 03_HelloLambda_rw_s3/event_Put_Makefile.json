@@ -1,0 +1,37 @@
+{
+	"Records": [{
+			"eventVersion": "2.1",
+			"eventSource": "aws:s3",
+			"awsRegion": "us-west-1",
+			"eventTime": "2023-04-10T05:48:05.526Z",
+			"eventName": "ObjectCreated:Put",
+			"userIdentity": {
+				"principalId": "AWS:AIDA4YSNJF5ROC4YVTPCP"
+			},
+			"requestParameters": {
+				"sourceIPAddress": "220.130.18.227"
+			},
+			"responseElements": {
+				"x-amz-request-id": "633AXBCJ7NVJHAJG",
+				"x-amz-id-2": "s/wvXcLnRxlWNlLlFcmVlopsWPj9qxJru+03oAY8u+rfUO7INpNOCWxGdnowPD1c8cO1TbnVYwL238K0jEzPvThR5oZi/g9F"
+			},
+			"s3": {
+				"s3SchemaVersion": "1.0",
+				"configurationId": "d49fad84-64b8-4c48-a80a-ffa7baf09dd0",
+				"bucket": {
+					"name": "lambdax9",
+					"ownerIdentity": {
+						"principalId": "AIDNZH7UOJ6EP"
+					},
+					"arn": "arn:aws:s3:::lambdax9"
+				},
+				"object": {
+					"key": "Makefile",
+					"size": 5309,
+					"eTag": "af980bd6129dcf9857fb1b64304231e1",
+					"sequencer": "006433A3155AD30FC7"
+				}
+			}
+		}
+	]
+}

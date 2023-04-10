@@ -44,6 +44,9 @@ ifneq ("$(wildcard $(PROJECT_JSON))","")
 	#CONTENT_URI=$(shell jq -cr '.package_name' $(PROJECT_JSON))
 
 	RUNTIME=$(strip $(shell cat $(TEMPLATE_FILE) | grep "Runtime:" | cut -d":" -f2))
+
+	GITHUB_LIBS=$(shell jq -cr '.github_libs' $(PROJECT_JSON))
+
 else
 	$(error Can't find $(PROJECT_JSON) !!!")
 endif
