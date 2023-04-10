@@ -17,6 +17,8 @@ You need an aws account at first !
 
 - [AWS CloudFormation](https://aws.amazon.com/tw/cloudformation/)
 
+- [pythonX9](https://github.com/lankahsu520/pythonX9)
+
 
 # 3. Current Status
 
@@ -28,7 +30,7 @@ You need an aws account at first !
 
 > The 1st python, you can edit it.
 
-- [lambda_function.py](https://github.com/lankahsu520/LambdaHello/blob/master/function/lambda_function.py)
+- [lambda_function.py](https://github.com/lankahsu520/LambdaHello/blob/main/01_HelloLambda/function/lambda_function.py)
 
 ## 4.2. To create a new bucket
 
