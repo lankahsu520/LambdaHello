@@ -1,0 +1,5 @@
+LambdaFunctionConfigurations:
+- Events:
+  - s3:ObjectCreated:*
+  - s3:ObjectRemoved:*
+  LambdaFunctionArn: arn:aws:lambda:us-west-1:123456789012:function:LambdaHello-function-bLJNjfr7pRL5
