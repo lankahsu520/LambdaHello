@@ -1,0 +1,35 @@
+{
+	"Records": [{
+			"eventVersion": "2.1",
+			"eventSource": "aws:s3",
+			"awsRegion": "us-west-1",
+			"eventTime": "2023-04-10T05:49:00.011Z",
+			"eventName": "ObjectRemoved:Delete",
+			"userIdentity": {
+				"principalId": "AWS:AIDA4YSNJF5ROC4YVTPCP"
+			},
+			"requestParameters": {
+				"sourceIPAddress": "220.130.18.227"
+			},
+			"responseElements": {
+				"x-amz-request-id": "CQ31DFRM6VBAN9MR",
+				"x-amz-id-2": "xPyBzvfAjezR/K3QuFAGsjGsDDR2AdsW4jNzod1SUDhKccfEDU3MObnewYX+7DtM93eyAodpOFTUQigBPhi7i0ZqqHZk1SHq"
+			},
+			"s3": {
+				"s3SchemaVersion": "1.0",
+				"configurationId": "d49fad84-64b8-4c48-a80a-ffa7baf09dd0",
+				"bucket": {
+					"name": "lambdax9",
+					"ownerIdentity": {
+						"principalId": "AIDNZH7UOJ6EP"
+					},
+					"arn": "arn:aws:s3:::lambdax9"
+				},
+				"object": {
+					"key": "Makefile",
+					"sequencer": "006433A34C00A91E8A"
+				}
+			}
+		}
+	]
+}
