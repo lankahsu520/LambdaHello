@@ -1,7 +1,7 @@
 import json
 
 #import boto3
-from awsX9 import *
+from awsP9 import *
 
 S3_BUCKET_NAME="lambdax9"
 S3_REGION_NAME=REGION_US_WEST_1
@@ -17,18 +17,18 @@ class lambdaX9_ctx(pythonX9):
 		else:
 			super(lambdaX9, self).__init__(**kwargs)
 
-	def awsx9_s3_connect(self):
-		self.awsx9 = awsX9_ctx(aws_service=AWS_SERVICE_S3, region=S3_REGION_NAME, dbg_more=DBG_LVL_DEBUG)
-		if (  0 != self.awsx9.s3_check_bucket(S3_BUCKET_NAME) ):
-			s3_bucket =  self.awsx9.s3_create_bucket(S3_BUCKET_NAME)
+	def awsP9_s3_connect(self):
+		self.awsP9 = awsP9_ctx(aws_service=[AWS_SERVICE_S3], region=S3_REGION_NAME, dbg_more=DBG_LVL_DEBUG)
+		if (  0 != self.awsP9.s3_check_bucket(S3_BUCKET_NAME) ):
+			s3_bucket =  self.awsP9.s3_create_bucket(S3_BUCKET_NAME)
 
-		if (  0 !=  self.awsx9.s3_check_bucket(S3_BUCKET_NAME_BAK) ):
-			s3_bucket =  self.awsx9.s3_create_bucket(S3_BUCKET_NAME_BAK)
+		if (  0 !=  self.awsP9.s3_check_bucket(S3_BUCKET_NAME_BAK) ):
+			s3_bucket =  self.awsP9.s3_create_bucket(S3_BUCKET_NAME_BAK)
 
 	def event_s3_delete(self, event, context):
 		s3_bucket_name = S3_BUCKET_NAME_BAK
 		s3_object_name =self.s3_object_name
-		self.awsx9.s3_delete_object(S3_BUCKET_NAME_BAK, s3_object_name )
+		self.awsP9.s3_delete_object(S3_BUCKET_NAME_BAK, s3_object_name )
 		response = {'statusCode': 200, 'eventName': self.s3_object_eventName, 'bucket': self.s3_object_bucket, 'object': self.s3_object_name}
 		return response
 
@@ -38,7 +38,7 @@ class lambdaX9_ctx(pythonX9):
 		s3_object_from = self.s3_object_name
 		s3_bucket_to = S3_BUCKET_NAME_BAK
 		s3_object_to = self.s3_object_name
-		self.awsx9.s3_copy_object(s3_bucket_from, s3_object_from, s3_bucket_to, s3_object_to )
+		self.awsP9.s3_copy_object(s3_bucket_from, s3_object_from, s3_bucket_to, s3_object_to )
 		response = {'statusCode': 200, 'eventName': self.s3_object_eventName, 'bucket': self.s3_object_bucket, 'object': self.s3_object_name}
 		return response
 
@@ -65,7 +65,7 @@ class lambdaX9_ctx(pythonX9):
 	def start(self, event, context):
 		DBG_IF_LN(self, "start")
 
-		self.awsx9_s3_connect()
+		self.awsP9_s3_connect()
 
 		self.result = self.event_s3_helper(event, context)
 
