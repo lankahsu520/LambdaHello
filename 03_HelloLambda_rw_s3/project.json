@@ -5,5 +5,5 @@
 	"result_json_file": "result.json",
 	"template_file": "template.yml",
 	"output_template_file": "out.yml",
-	"github_libs": "https://github.com/lankahsu520/pythonX9.git"
+	"github_libs": "https://github.com/lankahsu520/pythonX9.git https://github.com/lankahsu520/awsP9.git"
 }
