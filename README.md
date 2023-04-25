@@ -19,6 +19,8 @@ You need an aws account at first !
 
 - [pythonX9](https://github.com/lankahsu520/pythonX9)
 
+- [awsP9](https://github.com/lankahsu520/awsP9)
+
 
 # 3. Current Status
 
