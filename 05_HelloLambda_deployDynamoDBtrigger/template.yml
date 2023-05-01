@@ -11,6 +11,36 @@ Description: An AWS Lambda application that calls the Lambda API.
 # https://stackoverflow.com/questions/58167514/add-s3-trigger-on-a-lambda-function-with-cloudformation-yaml
 
 Resources:
+  MyTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Music
+      AttributeDefinitions:
+        - AttributeName: Artist
+          AttributeType: S
+        - AttributeName: SongTitle
+          AttributeType: S
+      KeySchema:
+        - AttributeName: Artist
+          KeyType: HASH
+        - AttributeName: SongTitle
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+
+  MyTableMonitor:
+    Type: AWS::Lambda::EventSourceMapping
+    Properties:
+      EventSourceARN: !GetAtt MyTable.StreamArn
+      FunctionName: !GetAtt function.Arn
+      BatchSize: 10
+      MaximumBatchingWindowInSeconds: 5
+      StartingPosition: LATEST
+      MaximumRetryAttempts: 3
+      Enabled: True
 
   MyTableBackup:
     Type: AWS::DynamoDB::Table

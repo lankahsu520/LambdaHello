@@ -1,0 +1,144 @@
+{
+	"Records": [{
+			"eventID": "915c33a194e15e33d3879ca84758dc30",
+			"eventName": "REMOVE",
+			"eventVersion": "1.1",
+			"eventSource": "aws:dynamodb",
+			"awsRegion": "us-west-1",
+			"dynamodb": {
+				"ApproximateCreationDateTime": 1682931941.0,
+				"Keys": {
+					"Artist": {
+						"S": "No One You Know"
+					},
+					"SongTitle": {
+						"S": "Call Me Today"
+					}
+				},
+				"OldImage": {
+					"Artist": {
+						"S": "No One You Know"
+					},
+					"Awards": {
+						"S": "1"
+					},
+					"SongTitle": {
+						"S": "Call Me Today"
+					},
+					"AlbumTitle": {
+						"S": "Somewhat Famous"
+					}
+				},
+				"SequenceNumber": "500000000016856062821",
+				"SizeBytes": 118,
+				"StreamViewType": "NEW_AND_OLD_IMAGES"
+			},
+			"eventSourceARN": "arn:aws:dynamodb:us-west-1:123456789012:table/Music/stream/2023-05-01T08:56:02.254"
+		}, {
+			"eventID": "89796e8dfa2f9a143ab92d4b9c4d8b69",
+			"eventName": "REMOVE",
+			"eventVersion": "1.1",
+			"eventSource": "aws:dynamodb",
+			"awsRegion": "us-west-1",
+			"dynamodb": {
+				"ApproximateCreationDateTime": 1682931941.0,
+				"Keys": {
+					"Artist": {
+						"S": "Acme Band"
+					},
+					"SongTitle": {
+						"S": "Happy Day"
+					}
+				},
+				"OldImage": {
+					"Artist": {
+						"S": "Acme Band"
+					},
+					"Awards": {
+						"S": "10"
+					},
+					"SongTitle": {
+						"S": "Happy Day"
+					},
+					"AlbumTitle": {
+						"S": "Songs About Life"
+					}
+				},
+				"SequenceNumber": "600000000016856062844",
+				"SizeBytes": 100,
+				"StreamViewType": "NEW_AND_OLD_IMAGES"
+			},
+			"eventSourceARN": "arn:aws:dynamodb:us-west-1:123456789012:table/Music/stream/2023-05-01T08:56:02.254"
+		}, {
+			"eventID": "6d9e58c9ac54491d13758ded2a6116ac",
+			"eventName": "REMOVE",
+			"eventVersion": "1.1",
+			"eventSource": "aws:dynamodb",
+			"awsRegion": "us-west-1",
+			"dynamodb": {
+				"ApproximateCreationDateTime": 1682931941.0,
+				"Keys": {
+					"Artist": {
+						"S": "No One You Know"
+					},
+					"SongTitle": {
+						"S": "Howdy"
+					}
+				},
+				"OldImage": {
+					"Artist": {
+						"S": "No One You Know"
+					},
+					"Awards": {
+						"S": "2"
+					},
+					"SongTitle": {
+						"S": "Howdy"
+					},
+					"AlbumTitle": {
+						"S": "Somewhat Famous"
+					}
+				},
+				"SequenceNumber": "700000000016856062845",
+				"SizeBytes": 102,
+				"StreamViewType": "NEW_AND_OLD_IMAGES"
+			},
+			"eventSourceARN": "arn:aws:dynamodb:us-west-1:123456789012:table/Music/stream/2023-05-01T08:56:02.254"
+		}, {
+			"eventID": "422321c08b1bb4b2a95a4a7a1cbe4d27",
+			"eventName": "REMOVE",
+			"eventVersion": "1.1",
+			"eventSource": "aws:dynamodb",
+			"awsRegion": "us-west-1",
+			"dynamodb": {
+				"ApproximateCreationDateTime": 1682931941.0,
+				"Keys": {
+					"Artist": {
+						"S": "Acme Band"
+					},
+					"SongTitle": {
+						"S": "PartiQL Rocks"
+					}
+				},
+				"OldImage": {
+					"Artist": {
+						"S": "Acme Band"
+					},
+					"Awards": {
+						"S": "8"
+					},
+					"SongTitle": {
+						"S": "PartiQL Rocks"
+					},
+					"AlbumTitle": {
+						"S": "Another Album Title"
+					}
+				},
+				"SequenceNumber": "800000000016856062846",
+				"SizeBytes": 110,
+				"StreamViewType": "NEW_AND_OLD_IMAGES"
+			},
+			"eventSourceARN": "arn:aws:dynamodb:us-west-1:123456789012:table/Music/stream/2023-04-30T10:11:56.387"
+		}
+	]
+}

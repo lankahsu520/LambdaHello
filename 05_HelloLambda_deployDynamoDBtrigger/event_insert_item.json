@@ -1,0 +1,39 @@
+{
+	"Records": [{
+			"eventID": "38d80ded9100c97d426bf46ee73ad985",
+			"eventName": "INSERT",
+			"eventVersion": "1.1",
+			"eventSource": "aws:dynamodb",
+			"awsRegion": "us-west-1",
+			"dynamodb": {
+				"ApproximateCreationDateTime": 1682932071.0,
+				"Keys": {
+					"Artist": {
+						"S": "Acme Band"
+					},
+					"SongTitle": {
+						"S": "PartiQL Rocks"
+					}
+				},
+				"NewImage": {
+					"Artist": {
+						"S": "Acme Band"
+					},
+					"Awards": {
+						"S": "8"
+					},
+					"SongTitle": {
+						"S": "PartiQL Rocks"
+					},
+					"AlbumTitle": {
+						"S": "Another Album Title"
+					}
+				},
+				"SequenceNumber": "900000000016856103026",
+				"SizeBytes": 110,
+				"StreamViewType": "NEW_AND_OLD_IMAGES"
+			},
+			"eventSourceARN": "arn:aws:dynamodb:us-west-1:123456789012:table/Music/stream/2023-05-01T08:56:02.254"
+		}
+	]
+}
