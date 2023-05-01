@@ -13,6 +13,7 @@ Description: An AWS Lambda application that calls the Lambda API.
 Resources:
   MyTable:
     Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
     Properties:
       TableName: Music
       AttributeDefinitions:
@@ -44,6 +45,7 @@ Resources:
 
   MyTableBackup:
     Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
     Properties:
       TableName: MusicBak
       AttributeDefinitions:

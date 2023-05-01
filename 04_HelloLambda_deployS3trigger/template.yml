@@ -21,6 +21,7 @@ Resources:
   # AWS::S3::Bucket
   MyBucketMonitor:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
     DependsOn: MyInvokePermission
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html?icmpid=docs_cfn_console_designer
     Properties:
@@ -53,6 +54,7 @@ Resources:
 
   MyBucketBackup:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
     Properties:
       BucketName: lambdax9bak
 

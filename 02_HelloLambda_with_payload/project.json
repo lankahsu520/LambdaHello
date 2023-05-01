@@ -1,5 +1,5 @@
 {
-	"stack_name": "LambdaHello",
+	"stack_name": "LambdaHelloEvent",
 	"s3_bucket_name": "lambda-artifacts520",
 	"event_json_file": "event.json",
 	"result_json_file": "result.json",
