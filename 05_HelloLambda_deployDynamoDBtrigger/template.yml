@@ -1,0 +1,65 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Lambda application that calls the Lambda API.
+# AWS CloudFormation template formats
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html
+
+# AWS CloudFormation Templates
+# https://aws.amazon.com/cloudformation/resources/templates/
+
+# https://github.com/aws-samples/s3-to-lambda-patterns/blob/master/translation/v2/template.yaml
+# https://stackoverflow.com/questions/58167514/add-s3-trigger-on-a-lambda-function-with-cloudformation-yaml
+
+Resources:
+
+  MyTableBackup:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: MusicBak
+      AttributeDefinitions:
+        - AttributeName: Artist
+          AttributeType: S
+        - AttributeName: SongTitle
+          AttributeType: S
+      KeySchema:
+        - AttributeName: Artist
+          KeyType: HASH
+        - AttributeName: SongTitle
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  #** Serverless::Function **
+  # 這段是表示將要上傳的 Lambda function, 此範例是用 python
+  # AWS::Lambda::Function
+  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html?icmpid=docs_cfn_console_designer
+  function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: function/.
+      Description: Call the AWS Lambda API
+      Timeout: 10
+      # Function's execution role
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambda_ReadOnlyAccess
+        - AmazonS3FullAccess
+        - AmazonDynamoDBFullAccess
+      Tracing: Active
+      Layers:
+        - !Ref libs
+
+  #** Lambda function libs **
+  # Lambda function 需要使用的 libs, 於 create layer 時進行打包
+  libs:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: HelloLambda-python-lib
+      Description: Dependencies for the helloworld-python sample app.
+      ContentUri: package/.
+      CompatibleRuntimes:
+        - python3.8
+
